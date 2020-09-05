@@ -1,0 +1,6 @@
+table FlatbufferRollRequest {
+    dice_size: int32;
+    number_of_rolls: int32;
+}
+
+root_type FlatbufferRollRequest;
