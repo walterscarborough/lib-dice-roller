@@ -1,6 +1,6 @@
-use rand::Rng;
 use crate::roll::roll_request::RollRequest;
 use crate::roll::roll_response::RollResponse;
+use rand::Rng;
 
 pub fn roll_dice(roll_request: RollRequest) -> RollResponse {
     let mut output: Vec<i32> = vec![];
@@ -14,21 +14,21 @@ pub fn roll_dice(roll_request: RollRequest) -> RollResponse {
     }
 
     RollResponse {
-        dice_values: output
+        dice_values: output,
     }
 }
 
 #[cfg(test)]
 mod tests {
-    use crate::roll::roll_request::RollRequest;
     use crate::roll::roll_dice::roll_dice;
+    use crate::roll::roll_request::RollRequest;
     use std::borrow::Borrow;
 
     #[test]
     fn roll_should_return_random_values() {
         let roll_request = RollRequest {
             dice_size: 6,
-            number_of_rolls: 2000
+            number_of_rolls: 2000,
         };
 
         let roll_response_a = roll_dice(roll_request);
@@ -41,14 +41,20 @@ mod tests {
     fn roll_should_return_results_within_the_specified_size() {
         let roll_request = RollRequest {
             dice_size: 6,
-            number_of_rolls: 2000
+            number_of_rolls: 2000,
         };
 
         let roll_response = roll_dice(roll_request);
 
         for dice_value in roll_response.dice_values {
-            assert!(dice_value.to_owned() >= 1, "should be greater than or equal to 1");
-            assert!(dice_value.to_owned() <= 6, "should be less than or equal to 6");
+            assert!(
+                dice_value.to_owned() >= 1,
+                "should be greater than or equal to 1"
+            );
+            assert!(
+                dice_value.to_owned() <= 6,
+                "should be less than or equal to 6"
+            );
         }
     }
 
@@ -56,7 +62,7 @@ mod tests {
     fn roll_should_return_the_result_count_that_was_requested() {
         let roll_request = RollRequest {
             dice_size: 6,
-            number_of_rolls: 2000
+            number_of_rolls: 2000,
         };
 
         let roll_response = roll_dice(roll_request);
@@ -68,14 +74,20 @@ mod tests {
     fn roll_should_return_rolls_of_varying_dice_size() {
         let roll_request = RollRequest {
             dice_size: 20,
-            number_of_rolls: 2000
+            number_of_rolls: 2000,
         };
 
         let roll_response = roll_dice(roll_request);
 
         for dice_value in roll_response.dice_values {
-            assert!(dice_value.to_owned() >= 1, "should be greater than or equal to 1");
-            assert!(dice_value.to_owned() <= 20, "should be less than or equal to 20");
+            assert!(
+                dice_value.to_owned() >= 1,
+                "should be greater than or equal to 1"
+            );
+            assert!(
+                dice_value.to_owned() <= 20,
+                "should be less than or equal to 20"
+            );
         }
     }
 
@@ -83,7 +95,7 @@ mod tests {
     fn roll_should_be_able_to_reach_dice_value_of_one() {
         let roll_request = RollRequest {
             dice_size: 6,
-            number_of_rolls: 2000
+            number_of_rolls: 2000,
         };
 
         let roll_response = roll_dice(roll_request);
@@ -103,7 +115,7 @@ mod tests {
     fn roll_should_be_able_to_reach_max_dice_size() {
         let roll_request = RollRequest {
             dice_size: 6,
-            number_of_rolls: 2000
+            number_of_rolls: 2000,
         };
 
         let roll_response = roll_dice(roll_request);
