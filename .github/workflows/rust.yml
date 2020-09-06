@@ -13,9 +13,10 @@ env:
 
 jobs:
   build:
-
     runs-on: macos-latest
-
+    defaults:
+      run:
+        working-directory: common/lib-dice-roller
     steps:
     - uses: actions/checkout@v2
     - name: Install Brew Dependencies

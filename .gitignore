@@ -1,9 +1,1 @@
-# Rust
-/target
-Cargo.lock
-
-# IntelliJ
 .idea
-
-# Code
-flatbuffer_generated
