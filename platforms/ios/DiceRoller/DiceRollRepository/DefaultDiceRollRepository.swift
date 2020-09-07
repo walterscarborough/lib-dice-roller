@@ -5,10 +5,14 @@ struct DefaultDiceRollRepository {
 
         let protobufRollRequest = rollRequest.toProtobuf()
         var serializedProtobufRollRequest: Data = try! protobufRollRequest.serializedData()
-        let serializedProtobufRollRequestLength = UInt(serializedProtobufRollRequest.count)
+        let serializedProtobufRollRequestLength = serializedProtobufRollRequest.count
 
-        serializedProtobufRollRequest.withUnsafeMutableBytes({ (bytes: UnsafeMutablePointer<Int8>) -> Void in
-            let ffiArrayBufferRollRequest = FfiArrayBuffer(data: bytes, len: serializedProtobufRollRequestLength)
+        serializedProtobufRollRequest.withUnsafeMutableBytes({ (bytes: UnsafeMutableRawBufferPointer) -> Void in
+
+            let unsafeBufferPointer = bytes.bindMemory(to: Int8.self)
+            let unsafePointer = unsafeBufferPointer.baseAddress!
+
+            let ffiArrayBufferRollRequest = FfiArrayBuffer(data: unsafePointer, len: UInt(serializedProtobufRollRequestLength))
 
             let ffiArrayBufferRollResponse = ffi_roll_dice(ffiArrayBufferRollRequest)
 
