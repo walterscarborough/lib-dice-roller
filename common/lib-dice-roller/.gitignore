@@ -6,4 +6,5 @@ Cargo.lock
 .idea
 
 # Code
-flatbuffer_generated
+src/roll_generated/*_generated.rs
+generated_c_headers

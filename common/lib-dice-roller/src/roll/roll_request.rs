@@ -1,11 +1,8 @@
 extern crate flatbuffers;
-use crate::roll::roll_request::roll_request_generated::{
+
+use crate::roll_generated::roll_request_generated::{
     get_root_as_flatbuffer_roll_request, FlatbufferRollRequest, FlatbufferRollRequestArgs,
 };
-
-#[allow(dead_code, unused_imports)]
-#[path = "./../../flatbuffer_generated/roll_request_generated.rs"]
-mod roll_request_generated;
 
 #[derive(PartialEq, Debug, Clone, Copy)]
 pub struct RollRequest {

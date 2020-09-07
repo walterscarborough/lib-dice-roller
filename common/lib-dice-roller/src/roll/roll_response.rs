@@ -1,12 +1,9 @@
 extern crate flatbuffers;
 
-use crate::roll::roll_response::roll_response_generated::{
+#[allow(dead_code, unused_imports)]
+use crate::roll_generated::roll_response_generated::{
     get_root_as_flatbuffer_roll_response, FlatbufferRollResponse, FlatbufferRollResponseArgs,
 };
-
-#[allow(dead_code, unused_imports)]
-#[path = "./../../flatbuffer_generated/roll_response_generated.rs"]
-mod roll_response_generated;
 
 #[derive(PartialEq, Debug)]
 pub struct RollResponse {
