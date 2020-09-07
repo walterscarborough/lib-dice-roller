@@ -3,7 +3,7 @@ use crate::roll::roll_response::RollResponse;
 use rand::Rng;
 
 pub fn roll_dice(roll_request: RollRequest) -> RollResponse {
-    let mut output: Vec<i32> = vec![];
+    let mut output: Vec<u32> = vec![];
 
     let inclusive_dice_size_upper_bound = roll_request.dice_size + 1;
     let mut rng = rand::thread_rng();
@@ -102,7 +102,7 @@ mod tests {
 
         let mut reached_one = false;
         for dice_value in roll_response.dice_values {
-            if dice_value.eq(1i32.borrow()) {
+            if dice_value.eq(1u32.borrow()) {
                 reached_one = true;
                 break;
             }
@@ -122,7 +122,7 @@ mod tests {
 
         let mut reached_max_size = false;
         for dice_value in roll_response.dice_values {
-            if dice_value.eq(6i32.borrow()) {
+            if dice_value.eq(6u32.borrow()) {
                 reached_max_size = true;
                 break;
             }

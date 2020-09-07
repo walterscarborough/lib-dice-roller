@@ -1,0 +1,7 @@
+syntax = "proto3";
+package protobuf_roll;
+
+message ProtobufRollRequest {
+  uint32 dice_size = 1;
+  uint32 number_of_rolls = 2;
+}

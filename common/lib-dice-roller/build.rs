@@ -1,26 +1,28 @@
+use std::env;
+use prost_build;
 use cbindgen;
 use cbindgen::Language;
-use flatc_rust;
-use std::env;
-use std::path::Path;
 
 fn main() {
-    generate_flatbuffer_files();
+    generate_protobuf_files();
     generate_c_header_bindings();
 }
 
-fn generate_flatbuffer_files() {
-    println!("cargo:rerun-if-changed=flatbuffer_schemata/roll_request.fbs");
-    println!("cargo:rerun-if-changed=flatbuffer_schemata/roll_response.fbs");
-    flatc_rust::run(flatc_rust::Args {
-        inputs: &[
-            Path::new("flatbuffer_schemata/roll_request.fbs"),
-            Path::new("flatbuffer_schemata/roll_response.fbs"),
+fn generate_protobuf_files() {
+    println!("cargo:rerun-if-changed=protobuf_schemata/roll_request.proto");
+    println!("cargo:rerun-if-changed=protobuf_schemata/roll_response.proto");
+
+    let mut config = prost_build::Config::default();
+
+    config.out_dir("src/roll_generated");
+
+    config.compile_protos(
+        &[
+            "protobuf_schemata/roll_request.proto",
+            "protobuf_schemata/roll_response.proto",
         ],
-        out_dir: Path::new("src/roll_generated/"),
-        ..Default::default()
-    })
-    .expect("flatc");
+        &["protobuf_schemata/"],
+    ).unwrap();
 }
 
 fn generate_c_header_bindings() {

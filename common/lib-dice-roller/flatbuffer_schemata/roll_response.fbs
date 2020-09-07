@@ -1,5 +1,0 @@
-table FlatbufferRollResponse {
-    dice_values: [int32];
-}
-
-root_type FlatbufferRollResponse;

@@ -1,0 +1,6 @@
+syntax = "proto3";
+package protobuf_roll;
+
+message ProtobufRollResponse {
+  repeated uint32 dice_values = 1;
+}

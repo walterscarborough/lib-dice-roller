@@ -1,43 +1,29 @@
-extern crate flatbuffers;
+use crate::roll_generated::protobuf_roll::ProtobufRollResponse;
+use prost::Message;
 
-#[allow(dead_code, unused_imports)]
-use crate::roll_generated::roll_response_generated::{
-    get_root_as_flatbuffer_roll_response, FlatbufferRollResponse, FlatbufferRollResponseArgs,
-};
-
-#[derive(PartialEq, Debug)]
+#[derive(PartialEq, Debug, Clone)]
 pub struct RollResponse {
-    pub dice_values: Vec<i32>,
+    pub dice_values: Vec<u32>,
 }
 
 impl RollResponse {
-    pub fn to_flatbuffer(&self) -> Vec<u8> {
-        let mut builder = flatbuffers::FlatBufferBuilder::new_with_capacity(1024);
+    pub fn to_protobuf(&self) -> Vec<u8> {
+        let protobuf_roll_response = ProtobufRollResponse {
+            dice_values: self.dice_values.clone(),
+        };
 
-        let flatbuffer_dice_values = builder.create_vector(&self.dice_values);
-        let flatbuffer_roll_response = FlatbufferRollResponse::create(
-            &mut builder,
-            &FlatbufferRollResponseArgs {
-                dice_values: Some(flatbuffer_dice_values),
-            },
-        );
-        builder.finish(flatbuffer_roll_response, None);
-        let serialized_flatbuffer_roll_response = builder.finished_data();
+        let mut buf: Vec<u8> = vec![];
+        protobuf_roll_response.encode(&mut buf).expect("should be able to serialize to protobuf");
 
-        serialized_flatbuffer_roll_response.to_vec()
+        buf
     }
 
-    pub fn from_flatbuffer(flatbuffer_data: Vec<u8>) -> RollResponse {
-        let flatbuffer_roll_response =
-            get_root_as_flatbuffer_roll_response(flatbuffer_data.as_slice());
+    pub fn from_protobuf(data: Vec<u8>) -> RollResponse {
+        let protobuf_roll_response = ProtobufRollResponse::decode(data.as_slice()).expect("should be able to deserialize from protobuf");
 
-        let mut dice_values: Vec<i32> = vec![];
-
-        for dice_value in flatbuffer_roll_response.dice_values().unwrap().iter() {
-            dice_values.push(dice_value);
+        RollResponse {
+            dice_values: protobuf_roll_response.dice_values,
         }
-
-        RollResponse { dice_values }
     }
 }
 
@@ -51,9 +37,9 @@ mod tests {
             dice_values: vec![1, 2, 3],
         };
 
-        let flatbuffer_roll_response = original_roll_response.to_flatbuffer();
+        let protobuf_roll_response = original_roll_response.to_protobuf();
 
-        let deserialized_roll_response = RollResponse::from_flatbuffer(flatbuffer_roll_response);
+        let deserialized_roll_response = RollResponse::from_protobuf(protobuf_roll_response);
 
         assert_eq!(original_roll_response, deserialized_roll_response);
     }

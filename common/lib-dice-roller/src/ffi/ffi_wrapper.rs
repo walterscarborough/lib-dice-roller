@@ -12,72 +12,67 @@ pub struct FfiArrayBuffer {
 
 #[no_mangle]
 pub extern "C" fn ffi_roll_dice(
-    roll_request_ffi_array_buffer_ptr: *mut FfiArrayBuffer,
-) -> *mut FfiArrayBuffer {
-    let roll_request_flatbuffer = unsafe {
-        assert!(!roll_request_ffi_array_buffer_ptr.is_null());
+    roll_request_ffi_array_buffer: FfiArrayBuffer,
+) -> FfiArrayBuffer {
 
-        slice_from_raw_parts_mut(
-            (*roll_request_ffi_array_buffer_ptr).data as *mut u8,
-            (*roll_request_ffi_array_buffer_ptr).len,
-        )
-    };
+    let roll_request_protobuf = convert_ffi_array_buffer_to_protobuf(roll_request_ffi_array_buffer);
 
-    let roll_request_flatbuffer = unsafe { (*roll_request_flatbuffer).to_vec() };
-
-    let roll_request = RollRequest::from_flatbuffer(roll_request_flatbuffer);
+    let roll_request = RollRequest::from_protobuf(roll_request_protobuf);
 
     let roll_response = roll_dice(roll_request);
 
-    let roll_response_flatbuffer = roll_response.to_flatbuffer();
+    let roll_response_protobuf = roll_response.to_protobuf();
 
-    convert_flatbuffer_to_ffi_array_buffer_ptr(roll_response_flatbuffer)
+    convert_protobuf_to_ffi_array_buffer(roll_response_protobuf)
 }
 
 #[no_mangle]
-pub extern "C" fn ffi_roll_dice_free(roll_response_ffi_array_buffer_ptr: *mut FfiArrayBuffer) {
+pub extern "C" fn ffi_roll_dice_free(roll_response_ffi_array_buffer: FfiArrayBuffer) {
     unsafe {
         assert!(
-            !roll_response_ffi_array_buffer_ptr.is_null(),
-            "roll_response_ffi_array_buffer_ptr should not be null!"
-        );
-        assert!(
-            !(*roll_response_ffi_array_buffer_ptr).data.is_null(),
+            !roll_response_ffi_array_buffer.data.is_null(),
             "roll_response_ffi_array_buffer_ptr data char array should not be null!"
         );
 
-        CString::from_raw((*roll_response_ffi_array_buffer_ptr).data);
-        let boxed = Box::from_raw(roll_response_ffi_array_buffer_ptr);
+        let c_string = CString::from_raw(roll_response_ffi_array_buffer.data);
 
-        drop(boxed);
+        drop(c_string);
     }
 }
 
-fn convert_flatbuffer_to_ffi_array_buffer_ptr(flatbuffer: Vec<u8>) -> *mut FfiArrayBuffer {
+fn convert_protobuf_to_ffi_array_buffer(protobuf: Vec<u8>) -> FfiArrayBuffer {
     unsafe {
-        let c_roll_response_flatbuffer = CString::from_vec_unchecked(flatbuffer);
+        let c_roll_response_flatbuffer = CString::from_vec_unchecked(protobuf);
         let c_roll_response_flatbuffer_len = c_roll_response_flatbuffer.to_bytes().len();
         let c_roll_response_flatbuffer_ptr = CString::into_raw(c_roll_response_flatbuffer);
 
-        let ffi_array_buffer = FfiArrayBuffer {
+        FfiArrayBuffer {
             data: c_roll_response_flatbuffer_ptr,
             len: c_roll_response_flatbuffer_len,
-        };
-
-        let boxed_ffi_array_buffer = Box::new(ffi_array_buffer);
-
-        Box::into_raw(boxed_ffi_array_buffer)
+        }
     }
+}
+
+fn convert_ffi_array_buffer_to_protobuf(ffi_array_buffer: FfiArrayBuffer) -> Vec<u8> {
+    let protobuf = unsafe {
+        assert!(!ffi_array_buffer.data.is_null());
+
+        let protobuf_data = slice_from_raw_parts_mut(
+            ffi_array_buffer.data as *mut u8,
+            ffi_array_buffer.len,
+        );
+
+        (*protobuf_data).to_vec()
+    };
+
+    protobuf
 }
 
 #[cfg(test)]
 mod tests {
-    use crate::ffi::ffi_wrapper::{
-        convert_flatbuffer_to_ffi_array_buffer_ptr, ffi_roll_dice, ffi_roll_dice_free,
-    };
+    use crate::ffi::ffi_wrapper::{ffi_roll_dice, ffi_roll_dice_free, convert_protobuf_to_ffi_array_buffer, convert_ffi_array_buffer_to_protobuf};
     use crate::roll::roll_request::RollRequest;
     use crate::roll::roll_response::RollResponse;
-    use std::ptr::slice_from_raw_parts_mut;
 
     #[test]
     fn test_ffi_roll_dice() {
@@ -86,22 +81,14 @@ mod tests {
             number_of_rolls: 123,
         };
 
-        let roll_request_flatbuffer = roll_request.to_flatbuffer();
-        let flatbuffer_to_ffi_array_buffer_ptr =
-            convert_flatbuffer_to_ffi_array_buffer_ptr(roll_request_flatbuffer);
+        let roll_request_protobuf = roll_request.to_protobuf();
+        let roll_request_ffi_array_buffer = convert_protobuf_to_ffi_array_buffer(roll_request_protobuf);
 
-        let roll_response_ffi_array_buffer_ptr = ffi_roll_dice(flatbuffer_to_ffi_array_buffer_ptr);
+        let roll_response_ffi_array_buffer = ffi_roll_dice(roll_request_ffi_array_buffer);
 
-        let roll_response_flatbuffer = unsafe {
-            slice_from_raw_parts_mut(
-                (*roll_response_ffi_array_buffer_ptr).data as *mut u8,
-                (*roll_response_ffi_array_buffer_ptr).len,
-            )
-        };
+        let roll_response_protobuf = convert_ffi_array_buffer_to_protobuf(roll_response_ffi_array_buffer);
 
-        let roll_response_flatbuffer = unsafe { (*roll_response_flatbuffer).to_vec() };
-
-        let roll_response = RollResponse::from_flatbuffer(roll_response_flatbuffer);
+        let roll_response = RollResponse::from_protobuf(roll_response_protobuf);
 
         assert_eq!(roll_response.dice_values.len(), 123);
     }
@@ -112,11 +99,10 @@ mod tests {
             dice_values: vec![1, 2, 3],
         };
 
-        let roll_response_flatbuffer = roll_response.to_flatbuffer();
+        let roll_response_protobuf = roll_response.to_protobuf();
 
-        let ffi_array_buffer_ptr =
-            convert_flatbuffer_to_ffi_array_buffer_ptr(roll_response_flatbuffer);
+        let ffi_array_buffer = convert_protobuf_to_ffi_array_buffer(roll_response_protobuf);
 
-        ffi_roll_dice_free(ffi_array_buffer_ptr);
+        ffi_roll_dice_free(ffi_array_buffer);
     }
 }
