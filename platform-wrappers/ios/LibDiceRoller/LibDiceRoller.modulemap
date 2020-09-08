@@ -1,0 +1,9 @@
+framework module LibDiceRoller {
+    umbrella header "LibDiceRoller.h"
+
+    explicit module RustLibDiceRoller {
+        private header "lib_dice_roller_bindings.h"
+    }
+
+    export *
+}
