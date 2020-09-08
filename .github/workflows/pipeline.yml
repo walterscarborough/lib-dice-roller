@@ -17,9 +17,9 @@ jobs:
     steps:
     - uses: actions/checkout@v2
 
-#    - name: Run Rust Library Tests
-#      run: make test
-#      working-directory: common/lib-dice-roller
+    - name: Run Rust Library Tests
+      run: make test
+      working-directory: common/lib-dice-roller
     - name: Build Rust Library
       run: make build
       working-directory: common/lib-dice-roller

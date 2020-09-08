@@ -5,18 +5,20 @@ MAKEFLAGS += --warn-undefined-variables
 MAKEFLAGS += --no-builtin-rules
 
 .PHONY: build
-build: install-rust-dependencies
+build: install-dependencies
 	cargo lipo --release
 
 .PHONY: clean
-clean: install-rust-dependencies
+clean: install-dependencies
 	cargo clean
 
 .PHONY: test
-test: install-rust-dependencies
+test: install-dependencies
 	cargo test
 
-.PHONY: install-rust-dependencies
-install-rust-dependencies:
+.PHONY: install-dependencies
+install-dependencies:
+	brew bundle
+	rustup update
 	rustup target add aarch64-apple-ios x86_64-apple-ios
 	cargo install cargo-lipo

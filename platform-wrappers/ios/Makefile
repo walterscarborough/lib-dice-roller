@@ -9,21 +9,24 @@ build: build-libdiceroller-common install-dependencies generate-protobufs
 	xcodebuild build \
             -project LibDiceRoller.xcodeproj \
             -scheme LibDiceRoller \
-            -destination 'platform=iOS Simulator,name=iPhone 11'
+            -destination 'platform=iOS Simulator,name=iPhone 11' \
+            | xcpretty
 
 .PHONY: clean
-clean:
+clean: install-dependencies
 	xcodebuild clean \
 		-project LibDiceRoller.xcodeproj \
 		-scheme LibDiceRoller \
-		-destination 'platform=iOS Simulator,name=iPhone 11'
+		-destination 'platform=iOS Simulator,name=iPhone 11' \
+		| xcpretty
 
 .PHONY: test
 test: build-libdiceroller-common install-dependencies generate-protobufs
 	xcodebuild test \
 		-project LibDiceRoller.xcodeproj \
 		-scheme LibDiceRoller \
-		-destination 'platform=iOS Simulator,name=iPhone 11'
+		-destination 'platform=iOS Simulator,name=iPhone 11' \
+		| xcpretty
 
 .PHONY: generate-protobufs
 generate-protobufs:
@@ -36,3 +39,4 @@ build-libdiceroller-common:
 .PHONY: install-dependencies
 install-dependencies:
 	brew bundle
+	bundle install
