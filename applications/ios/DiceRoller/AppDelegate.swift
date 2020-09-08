@@ -1,27 +1,11 @@
 import UIKit
 import CoreData
-import SwiftProtobuf
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
-
-    func baz() {
-        let repo = DefaultDiceRollRepository()
-
-        let rollRequest = RollRequest(diceSize: 20, numberOfRolls: 2)
-
-        repo.rollDice(rollRequest: rollRequest) { maybeError, maybeRollResponse in
-            if let rollResponse = maybeRollResponse {
-                print("rollResponse is: \(rollResponse)")
-            }
-        }
-    }
-
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
-
-        baz()
 
         return true
     }

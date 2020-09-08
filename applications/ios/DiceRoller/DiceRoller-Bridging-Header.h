@@ -9,6 +9,4 @@
 #ifndef DiceRoller_Bridging_Header_h
 #define DiceRoller_Bridging_Header_h
 
-#import "lib_dice_roller_bindings.h"
-
 #endif /* DiceRoller_Bridging_Header_h */

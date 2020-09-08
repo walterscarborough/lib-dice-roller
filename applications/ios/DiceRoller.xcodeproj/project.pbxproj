@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 52;
+	objectVersion = 50;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -16,14 +16,8 @@
 		D19BDA2D2505D1CF000F3703 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D19BDA2B2505D1CF000F3703 /* LaunchScreen.storyboard */; };
 		D19BDA382505D1D0000F3703 /* DiceRollerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D19BDA372505D1D0000F3703 /* DiceRollerTests.swift */; };
 		D19BDA432505D1D0000F3703 /* DiceRollerUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D19BDA422505D1D0000F3703 /* DiceRollerUITests.swift */; };
-		D19BDA542505D2AF000F3703 /* libdice_roller.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D19BDA532505D29F000F3703 /* libdice_roller.a */; };
-		D19BDA652506D85F000F3703 /* SwiftProtobuf in Frameworks */ = {isa = PBXBuildFile; productRef = D19BDA5F2506BAB0000F3703 /* SwiftProtobuf */; };
-		D19BDA682506D8D9000F3703 /* roll_response.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = D19BDA662506D8D9000F3703 /* roll_response.pb.swift */; };
-		D19BDA692506D8D9000F3703 /* roll_request.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = D19BDA672506D8D9000F3703 /* roll_request.pb.swift */; };
-		D1FFA7A12506DF440082869A /* RollResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1FFA79D2506DF430082869A /* RollResponse.swift */; };
-		D1FFA7A22506DF440082869A /* RollRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1FFA79E2506DF440082869A /* RollRequest.swift */; };
-		D1FFA7A32506DF440082869A /* DefaultDiceRollRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1FFA79F2506DF440082869A /* DefaultDiceRollRepository.swift */; };
-		D1FFA7A42506DF440082869A /* DiceRollRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1FFA7A02506DF440082869A /* DiceRollRepository.swift */; };
+		D1FFA8032507D15C0082869A /* LibDiceRoller.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D1FFA8002507D1300082869A /* LibDiceRoller.framework */; };
+		D1FFA8042507D15C0082869A /* LibDiceRoller.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = D1FFA8002507D1300082869A /* LibDiceRoller.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -41,7 +35,35 @@
 			remoteGlobalIDString = D19BDA192505D1CD000F3703;
 			remoteInfo = DiceRoller;
 		};
+		D1FFA7FF2507D1300082869A /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D1FFA7FA2507D1300082869A /* LibDiceRoller.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = D1FFA7B1250738360082869A;
+			remoteInfo = LibDiceRoller;
+		};
+		D1FFA8012507D1300082869A /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D1FFA7FA2507D1300082869A /* LibDiceRoller.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = D1FFA7BA250738360082869A;
+			remoteInfo = LibDiceRollerTests;
+		};
 /* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		D1FFA8052507D15C0082869A /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				D1FFA8042507D15C0082869A /* LibDiceRoller.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		D19BDA1A2505D1CD000F3703 /* DiceRoller.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DiceRoller.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -60,14 +82,8 @@
 		D19BDA422505D1D0000F3703 /* DiceRollerUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiceRollerUITests.swift; sourceTree = "<group>"; };
 		D19BDA442505D1D0000F3703 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D19BDA502505D234000F3703 /* DiceRoller-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "DiceRoller-Bridging-Header.h"; sourceTree = "<group>"; };
-		D19BDA512505D252000F3703 /* lib_dice_roller_bindings.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = lib_dice_roller_bindings.h; path = "../../../../../common/lib-dice-roller/generated_c_headers/lib_dice_roller_bindings.h"; sourceTree = "<group>"; };
 		D19BDA532505D29F000F3703 /* libdice_roller.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libdice_roller.a; path = "../../common/lib-dice-roller/target/universal/release/libdice_roller.a"; sourceTree = "<group>"; };
-		D19BDA662506D8D9000F3703 /* roll_response.pb.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = roll_response.pb.swift; path = "generated-protobufs/roll_response.pb.swift"; sourceTree = SOURCE_ROOT; };
-		D19BDA672506D8D9000F3703 /* roll_request.pb.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = roll_request.pb.swift; path = "generated-protobufs/roll_request.pb.swift"; sourceTree = SOURCE_ROOT; };
-		D1FFA79D2506DF430082869A /* RollResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RollResponse.swift; sourceTree = "<group>"; };
-		D1FFA79E2506DF440082869A /* RollRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RollRequest.swift; sourceTree = "<group>"; };
-		D1FFA79F2506DF440082869A /* DefaultDiceRollRepository.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DefaultDiceRollRepository.swift; sourceTree = "<group>"; };
-		D1FFA7A02506DF440082869A /* DiceRollRepository.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DiceRollRepository.swift; sourceTree = "<group>"; };
+		D1FFA7FA2507D1300082869A /* LibDiceRoller.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = LibDiceRoller.xcodeproj; path = "../../../platform-wrappers/ios/LibDiceRoller.xcodeproj"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -75,8 +91,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D19BDA542505D2AF000F3703 /* libdice_roller.a in Frameworks */,
-				D19BDA652506D85F000F3703 /* SwiftProtobuf in Frameworks */,
+				D1FFA8032507D15C0082869A /* LibDiceRoller.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -103,6 +118,7 @@
 				D19BDA1C2505D1CD000F3703 /* DiceRoller */,
 				D19BDA362505D1D0000F3703 /* DiceRollerTests */,
 				D19BDA412505D1D0000F3703 /* DiceRollerUITests */,
+				D1FFA7F92507D1270082869A /* Subprojects */,
 				D19BDA1B2505D1CD000F3703 /* Products */,
 				D19BDA522505D29F000F3703 /* Frameworks */,
 			);
@@ -121,7 +137,6 @@
 		D19BDA1C2505D1CD000F3703 /* DiceRoller */ = {
 			isa = PBXGroup;
 			children = (
-				D19BDA742506DE52000F3703 /* DiceRollRepository */,
 				D19BDA502505D234000F3703 /* DiceRoller-Bridging-Header.h */,
 				D19BDA1D2505D1CD000F3703 /* AppDelegate.swift */,
 				D19BDA1F2505D1CD000F3703 /* SceneDelegate.swift */,
@@ -169,26 +184,21 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		D19BDA582505ECC7000F3703 /* Generated LibDiceRoll */ = {
+		D1FFA7F92507D1270082869A /* Subprojects */ = {
 			isa = PBXGroup;
 			children = (
-				D19BDA512505D252000F3703 /* lib_dice_roller_bindings.h */,
-				D19BDA672506D8D9000F3703 /* roll_request.pb.swift */,
-				D19BDA662506D8D9000F3703 /* roll_response.pb.swift */,
+				D1FFA7FA2507D1300082869A /* LibDiceRoller.xcodeproj */,
 			);
-			path = "Generated LibDiceRoll";
+			path = Subprojects;
 			sourceTree = "<group>";
 		};
-		D19BDA742506DE52000F3703 /* DiceRollRepository */ = {
+		D1FFA7FB2507D1300082869A /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				D1FFA79F2506DF440082869A /* DefaultDiceRollRepository.swift */,
-				D1FFA7A02506DF440082869A /* DiceRollRepository.swift */,
-				D1FFA79E2506DF440082869A /* RollRequest.swift */,
-				D1FFA79D2506DF430082869A /* RollResponse.swift */,
-				D19BDA582505ECC7000F3703 /* Generated LibDiceRoll */,
+				D1FFA8002507D1300082869A /* LibDiceRoller.framework */,
+				D1FFA8022507D1300082869A /* LibDiceRollerTests.xctest */,
 			);
-			path = DiceRollRepository;
+			name = Products;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -201,6 +211,7 @@
 				D19BDA162505D1CD000F3703 /* Sources */,
 				D19BDA172505D1CD000F3703 /* Frameworks */,
 				D19BDA182505D1CD000F3703 /* Resources */,
+				D1FFA8052507D15C0082869A /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -208,7 +219,6 @@
 			);
 			name = DiceRoller;
 			packageProductDependencies = (
-				D19BDA5F2506BAB0000F3703 /* SwiftProtobuf */,
 			);
 			productName = DiceRoller;
 			productReference = D19BDA1A2505D1CD000F3703 /* DiceRoller.app */;
@@ -283,10 +293,15 @@
 			);
 			mainGroup = D19BDA112505D1CD000F3703;
 			packageReferences = (
-				D19BDA5E2506BAB0000F3703 /* XCRemoteSwiftPackageReference "swift-protobuf" */,
 			);
 			productRefGroup = D19BDA1B2505D1CD000F3703 /* Products */;
 			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = D1FFA7FB2507D1300082869A /* Products */;
+					ProjectRef = D1FFA7FA2507D1300082869A /* LibDiceRoller.xcodeproj */;
+				},
+			);
 			projectRoot = "";
 			targets = (
 				D19BDA192505D1CD000F3703 /* DiceRoller */,
@@ -295,6 +310,23 @@
 			);
 		};
 /* End PBXProject section */
+
+/* Begin PBXReferenceProxy section */
+		D1FFA8002507D1300082869A /* LibDiceRoller.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = LibDiceRoller.framework;
+			remoteRef = D1FFA7FF2507D1300082869A /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		D1FFA8022507D1300082869A /* LibDiceRollerTests.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = LibDiceRollerTests.xctest;
+			remoteRef = D1FFA8012507D1300082869A /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
 		D19BDA182505D1CD000F3703 /* Resources */ = {
@@ -328,16 +360,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D1FFA7A32506DF440082869A /* DefaultDiceRollRepository.swift in Sources */,
 				D19BDA1E2505D1CD000F3703 /* AppDelegate.swift in Sources */,
-				D19BDA692506D8D9000F3703 /* roll_request.pb.swift in Sources */,
-				D1FFA7A42506DF440082869A /* DiceRollRepository.swift in Sources */,
-				D1FFA7A12506DF440082869A /* RollResponse.swift in Sources */,
 				D19BDA232505D1CD000F3703 /* DiceRoller.xcdatamodeld in Sources */,
 				D19BDA252505D1CD000F3703 /* ContentView.swift in Sources */,
 				D19BDA202505D1CD000F3703 /* SceneDelegate.swift in Sources */,
-				D1FFA7A22506DF440082869A /* RollRequest.swift in Sources */,
-				D19BDA682506D8D9000F3703 /* roll_response.pb.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -666,25 +692,6 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
-
-/* Begin XCRemoteSwiftPackageReference section */
-		D19BDA5E2506BAB0000F3703 /* XCRemoteSwiftPackageReference "swift-protobuf" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/apple/swift-protobuf";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 1.12.0;
-			};
-		};
-/* End XCRemoteSwiftPackageReference section */
-
-/* Begin XCSwiftPackageProductDependency section */
-		D19BDA5F2506BAB0000F3703 /* SwiftProtobuf */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = D19BDA5E2506BAB0000F3703 /* XCRemoteSwiftPackageReference "swift-protobuf" */;
-			productName = SwiftProtobuf;
-		};
-/* End XCSwiftPackageProductDependency section */
 
 /* Begin XCVersionGroup section */
 		D19BDA212505D1CD000F3703 /* DiceRoller.xcdatamodeld */ = {

@@ -1,8 +1,10 @@
 import Foundation
 import LibDiceRoller.RustLibDiceRoller
 
-public struct DefaultDiceRollRepository {
-    func rollDice(rollRequest: RollRequest, completion: (Error?, RollResponse?) -> Void) {
+public struct DefaultDiceRollRepository: DiceRollRepository {
+    public init() {}
+
+    public func rollDice(rollRequest: RollRequest, completion: (Error?, RollResponse?) -> Void) {
 
         let protobufRollRequest = rollRequest.toProtobuf()
         var serializedProtobufRollRequest: Data = try! protobufRollRequest.serializedData()

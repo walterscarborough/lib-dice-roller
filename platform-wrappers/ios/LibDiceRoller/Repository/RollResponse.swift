@@ -1,5 +1,9 @@
 public struct RollResponse: Equatable {
-    let diceValues: [UInt32]
+    public let diceValues: [UInt32]
+
+    public init(diceValues: [UInt32]) {
+        self.diceValues = diceValues
+    }
 
     func toProtobuf() -> ProtobufRoll_ProtobufRollResponse {
         let protobufRollResponse = ProtobufRoll_ProtobufRollResponse.with {

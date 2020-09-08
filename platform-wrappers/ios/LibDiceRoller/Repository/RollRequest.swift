@@ -1,6 +1,11 @@
 public struct RollRequest: Equatable {
-    let diceSize: UInt32
-    let numberOfRolls: UInt32
+    public let diceSize: UInt32
+    public let numberOfRolls: UInt32
+
+    public init(diceSize: UInt32, numberOfRolls: UInt32) {
+        self.diceSize = diceSize
+        self.numberOfRolls = numberOfRolls
+    }
 
     func toProtobuf() -> ProtobufRoll_ProtobufRollRequest {
         let protobufRollRequest = ProtobufRoll_ProtobufRollRequest.with {
