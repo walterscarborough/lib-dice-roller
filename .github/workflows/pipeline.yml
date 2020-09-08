@@ -13,23 +13,26 @@ env:
 
 jobs:
   test-and-build:
-    runs-on: macos-latest
+    runs-on: macos-10.15
     steps:
     - uses: actions/checkout@v2
 
-    - name: Run Rust Library Tests
-      run: make test
-      working-directory: common/lib-dice-roller
+#    - name: Run Rust Library Tests
+#      run: make test
+#      working-directory: common/lib-dice-roller
     - name: Build Rust Library
       run: make build
       working-directory: common/lib-dice-roller
 
+    - name: Force xcode 11.7
+      run: sudo xcode-select -switch /Applications/Xcode_11.7.app
+
     - name: Run iOS Platform Wrapper Tests
       run: make test
-      working-directory: platforms/ios
+      working-directory: platform-wrappers/ios
     - name: Build iOS Platform Wrapper
       run: make build
-      working-directory: platforms/ios
+      working-directory: platform-wrappers/ios
 
     - name: Run iOS Application Tests
       run: make test

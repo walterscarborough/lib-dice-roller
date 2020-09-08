@@ -9,21 +9,21 @@ build: build-libdiceroller-ios
 	xcodebuild build \
             -project DiceRoller.xcodeproj \
             -scheme DiceRoller \
-            -destination 'platform=iOS Simulator,name=iPhone SE (2nd generation)'
+            -destination 'platform=iOS Simulator,name=iPhone 11'
 
 .PHONY: clean
 clean:
 	xcodebuild clean \
 		-project DiceRoller.xcodeproj \
 		-scheme DiceRoller \
-		-destination 'platform=iOS Simulator,name=iPhone SE (2nd generation)'
+		-destination 'platform=iOS Simulator,name=iPhone 11'
 
 .PHONY: test
 test: build-libdiceroller-ios
 	xcodebuild test \
 		-project DiceRoller.xcodeproj \
 		-scheme DiceRoller \
-		-destination 'platform=iOS Simulator,name=iPhone SE (2nd generation)'
+		-destination 'platform=iOS Simulator,name=iPhone 11'
 
 .PHONY: build-libdiceroller-ios
 build-libdiceroller-ios:
