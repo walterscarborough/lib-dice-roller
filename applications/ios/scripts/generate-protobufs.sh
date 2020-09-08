@@ -14,14 +14,19 @@ function go_to_project_root_directory() {
 }
 
 function generate_protobufs {
-  mkdir -p generated_protobufs
-  protoc --swift_out=generated_protobufs --proto_path=../../common/lib-dice-roller/protobuf_schemata roll_request.proto roll_response.proto
+  mkdir -p generated-protobufs
+  protoc --swift_out=generated-protobufs --proto_path=../../common/lib-dice-roller/protobuf_schemata roll_request.proto roll_response.proto
+}
+
+function create_xcode_generated_directory {
+  mkdir -p "DiceRoller/DiceRollRepository/Generated LibDiceRoll"
 }
 
 function main {
   set_bash_error_handling
   go_to_project_root_directory
 
+  create_xcode_generated_directory
   generate_protobufs
 }
 

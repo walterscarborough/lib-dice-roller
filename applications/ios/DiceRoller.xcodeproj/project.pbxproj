@@ -24,7 +24,6 @@
 		D1FFA7A22506DF440082869A /* RollRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1FFA79E2506DF440082869A /* RollRequest.swift */; };
 		D1FFA7A32506DF440082869A /* DefaultDiceRollRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1FFA79F2506DF440082869A /* DefaultDiceRollRepository.swift */; };
 		D1FFA7A42506DF440082869A /* DiceRollRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1FFA7A02506DF440082869A /* DiceRollRepository.swift */; };
-		D1FFA7A62506DFA20082869A /* generated_c_headers in Resources */ = {isa = PBXBuildFile; fileRef = D1FFA7A52506DFA20082869A /* generated_c_headers */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -61,15 +60,14 @@
 		D19BDA422505D1D0000F3703 /* DiceRollerUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiceRollerUITests.swift; sourceTree = "<group>"; };
 		D19BDA442505D1D0000F3703 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D19BDA502505D234000F3703 /* DiceRoller-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "DiceRoller-Bridging-Header.h"; sourceTree = "<group>"; };
-		D19BDA512505D252000F3703 /* lib_dice_roller_bindings.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = lib_dice_roller_bindings.h; path = "../../../common/lib-dice-roller/generated_c_headers/lib_dice_roller_bindings.h"; sourceTree = "<group>"; };
+		D19BDA512505D252000F3703 /* lib_dice_roller_bindings.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = lib_dice_roller_bindings.h; path = "../../../../../common/lib-dice-roller/generated_c_headers/lib_dice_roller_bindings.h"; sourceTree = "<group>"; };
 		D19BDA532505D29F000F3703 /* libdice_roller.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libdice_roller.a; path = "../../common/lib-dice-roller/target/universal/release/libdice_roller.a"; sourceTree = "<group>"; };
-		D19BDA662506D8D9000F3703 /* roll_response.pb.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = roll_response.pb.swift; path = generated_protobufs/roll_response.pb.swift; sourceTree = SOURCE_ROOT; };
-		D19BDA672506D8D9000F3703 /* roll_request.pb.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = roll_request.pb.swift; path = generated_protobufs/roll_request.pb.swift; sourceTree = SOURCE_ROOT; };
+		D19BDA662506D8D9000F3703 /* roll_response.pb.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = roll_response.pb.swift; path = "generated-protobufs/roll_response.pb.swift"; sourceTree = SOURCE_ROOT; };
+		D19BDA672506D8D9000F3703 /* roll_request.pb.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = roll_request.pb.swift; path = "generated-protobufs/roll_request.pb.swift"; sourceTree = SOURCE_ROOT; };
 		D1FFA79D2506DF430082869A /* RollResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RollResponse.swift; sourceTree = "<group>"; };
 		D1FFA79E2506DF440082869A /* RollRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RollRequest.swift; sourceTree = "<group>"; };
 		D1FFA79F2506DF440082869A /* DefaultDiceRollRepository.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DefaultDiceRollRepository.swift; sourceTree = "<group>"; };
 		D1FFA7A02506DF440082869A /* DiceRollRepository.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DiceRollRepository.swift; sourceTree = "<group>"; };
-		D1FFA7A52506DFA20082869A /* generated_c_headers */ = {isa = PBXFileReference; lastKnownFileType = folder; name = generated_c_headers; path = "../../../../../common/lib-dice-roller/generated_c_headers"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -125,7 +123,6 @@
 			children = (
 				D19BDA742506DE52000F3703 /* DiceRollRepository */,
 				D19BDA502505D234000F3703 /* DiceRoller-Bridging-Header.h */,
-				D19BDA512505D252000F3703 /* lib_dice_roller_bindings.h */,
 				D19BDA1D2505D1CD000F3703 /* AppDelegate.swift */,
 				D19BDA1F2505D1CD000F3703 /* SceneDelegate.swift */,
 				D19BDA242505D1CD000F3703 /* ContentView.swift */,
@@ -175,7 +172,7 @@
 		D19BDA582505ECC7000F3703 /* Generated LibDiceRoll */ = {
 			isa = PBXGroup;
 			children = (
-				D1FFA7A52506DFA20082869A /* generated_c_headers */,
+				D19BDA512505D252000F3703 /* lib_dice_roller_bindings.h */,
 				D19BDA672506D8D9000F3703 /* roll_request.pb.swift */,
 				D19BDA662506D8D9000F3703 /* roll_response.pb.swift */,
 			);
@@ -307,7 +304,6 @@
 				D19BDA2D2505D1CF000F3703 /* LaunchScreen.storyboard in Resources */,
 				D19BDA2A2505D1CF000F3703 /* Preview Assets.xcassets in Resources */,
 				D19BDA272505D1CF000F3703 /* Assets.xcassets in Resources */,
-				D1FFA7A62506DFA20082869A /* generated_c_headers in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
