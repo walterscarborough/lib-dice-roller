@@ -1,0 +1,39 @@
+name: DiceRoller Pipeline
+
+on:
+  push:
+    branches:
+    - '**'
+  pull_request:
+    branches:
+    - master
+
+env:
+  CARGO_TERM_COLOR: always
+
+jobs:
+  test-and-build:
+    runs-on: macos-latest
+    steps:
+    - uses: actions/checkout@v2
+
+    - name: Run Rust Library Tests
+      run: make test
+      working-directory: common/lib-dice-roller
+    - name: Build Rust Library
+      run: make build
+      working-directory: common/lib-dice-roller
+
+    - name: Run iOS Platform Wrapper Tests
+      run: make test
+      working-directory: platforms/ios
+    - name: Build iOS Platform Wrapper
+      run: make build
+      working-directory: platforms/ios
+
+    - name: Run iOS Application Tests
+      run: make test
+      working-directory: applications/ios
+    - name: Build iOS Application
+      run: make build
+      working-directory: applications/ios
