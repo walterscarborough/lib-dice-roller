@@ -1,7 +1,7 @@
-use std::env;
-use prost_build;
 use cbindgen;
 use cbindgen::Language;
+use prost_build;
+use std::env;
 
 fn main() {
     generate_protobuf_files();
@@ -16,13 +16,15 @@ fn generate_protobuf_files() {
 
     config.out_dir("src/roll_generated");
 
-    config.compile_protos(
-        &[
-            "protobuf_schemata/roll_request.proto",
-            "protobuf_schemata/roll_response.proto",
-        ],
-        &["protobuf_schemata/"],
-    ).unwrap();
+    config
+        .compile_protos(
+            &[
+                "protobuf_schemata/roll_request.proto",
+                "protobuf_schemata/roll_response.proto",
+            ],
+            &["protobuf_schemata/"],
+        )
+        .unwrap();
 }
 
 fn generate_c_header_bindings() {

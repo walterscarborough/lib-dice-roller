@@ -11,10 +11,7 @@ pub struct FfiArrayBuffer {
 }
 
 #[no_mangle]
-pub extern "C" fn ffi_roll_dice(
-    roll_request_ffi_array_buffer: FfiArrayBuffer,
-) -> FfiArrayBuffer {
-
+pub extern "C" fn ffi_roll_dice(roll_request_ffi_array_buffer: FfiArrayBuffer) -> FfiArrayBuffer {
     let roll_request_protobuf = convert_ffi_array_buffer_to_protobuf(roll_request_ffi_array_buffer);
 
     let roll_request = RollRequest::from_protobuf(roll_request_protobuf);
@@ -57,10 +54,8 @@ fn convert_ffi_array_buffer_to_protobuf(ffi_array_buffer: FfiArrayBuffer) -> Vec
     let protobuf = unsafe {
         assert!(!ffi_array_buffer.data.is_null());
 
-        let protobuf_data = slice_from_raw_parts_mut(
-            ffi_array_buffer.data as *mut u8,
-            ffi_array_buffer.len,
-        );
+        let protobuf_data =
+            slice_from_raw_parts_mut(ffi_array_buffer.data as *mut u8, ffi_array_buffer.len);
 
         (*protobuf_data).to_vec()
     };
@@ -70,7 +65,10 @@ fn convert_ffi_array_buffer_to_protobuf(ffi_array_buffer: FfiArrayBuffer) -> Vec
 
 #[cfg(test)]
 mod tests {
-    use crate::ffi::ffi_wrapper::{ffi_roll_dice, ffi_roll_dice_free, convert_protobuf_to_ffi_array_buffer, convert_ffi_array_buffer_to_protobuf};
+    use crate::ffi::ffi_wrapper::{
+        convert_ffi_array_buffer_to_protobuf, convert_protobuf_to_ffi_array_buffer, ffi_roll_dice,
+        ffi_roll_dice_free,
+    };
     use crate::roll::roll_request::RollRequest;
     use crate::roll::roll_response::RollResponse;
 
@@ -82,11 +80,13 @@ mod tests {
         };
 
         let roll_request_protobuf = roll_request.to_protobuf();
-        let roll_request_ffi_array_buffer = convert_protobuf_to_ffi_array_buffer(roll_request_protobuf);
+        let roll_request_ffi_array_buffer =
+            convert_protobuf_to_ffi_array_buffer(roll_request_protobuf);
 
         let roll_response_ffi_array_buffer = ffi_roll_dice(roll_request_ffi_array_buffer);
 
-        let roll_response_protobuf = convert_ffi_array_buffer_to_protobuf(roll_response_ffi_array_buffer);
+        let roll_response_protobuf =
+            convert_ffi_array_buffer_to_protobuf(roll_response_ffi_array_buffer);
 
         let roll_response = RollResponse::from_protobuf(roll_response_protobuf);
 

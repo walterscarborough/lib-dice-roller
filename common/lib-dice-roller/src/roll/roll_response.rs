@@ -13,13 +13,16 @@ impl RollResponse {
         };
 
         let mut buf: Vec<u8> = vec![];
-        protobuf_roll_response.encode(&mut buf).expect("should be able to serialize to protobuf");
+        protobuf_roll_response
+            .encode(&mut buf)
+            .expect("should be able to serialize to protobuf");
 
         buf
     }
 
     pub fn from_protobuf(data: Vec<u8>) -> RollResponse {
-        let protobuf_roll_response = ProtobufRollResponse::decode(data.as_slice()).expect("should be able to deserialize from protobuf");
+        let protobuf_roll_response = ProtobufRollResponse::decode(data.as_slice())
+            .expect("should be able to deserialize from protobuf");
 
         RollResponse {
             dice_values: protobuf_roll_response.dice_values,
