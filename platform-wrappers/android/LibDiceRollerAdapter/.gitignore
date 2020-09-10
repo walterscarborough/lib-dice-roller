@@ -1,0 +1,8 @@
+/build
+
+# Native Libraries
+src/main/jniLibs
+libs
+
+# generated-sources
+generated-sources

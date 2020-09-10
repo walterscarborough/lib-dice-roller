@@ -1,0 +1,3 @@
+include ':LibDiceRollerAdapter'
+include ':app'
+rootProject.name = "LibDiceRoller"
