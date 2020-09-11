@@ -34,7 +34,7 @@ generate-protobufs:
 
 .PHONY: build-libdiceroller-common
 build-libdiceroller-common:
-	cd ../../common/lib-dice-roller && make build
+	cd ../../common/lib-dice-roller && make build-ios
 
 .PHONY: install-dependencies
 install-dependencies:
