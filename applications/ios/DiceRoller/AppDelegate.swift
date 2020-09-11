@@ -1,11 +1,20 @@
 import UIKit
 import CoreData
+import LibDiceRoller
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+
+        let rollRequest = RollRequest(diceSize: 6, numberOfRolls: 2)
+
+        let diceRepository = DefaultDiceRollRepository()
+
+        diceRepository.rollDice(rollRequest: rollRequest) { maybeError, maybeRollResponse in
+            print("rollResponse is: \(maybeRollResponse!)")
+        }
 
         return true
     }

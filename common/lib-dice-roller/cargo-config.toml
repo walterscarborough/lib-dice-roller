@@ -1,11 +1,11 @@
 [target.aarch64-linux-android]
-ar = "<YOUR NDK PATH HERE>/toolchains/llvm/prebuilt/darwin-x86_64/bin/aarch64-linux-android-ar"
-linker = "<YOUR NDK PATH HERE>/toolchains/llvm/prebuilt/darwin-x86_64/bin/aarch64-linux-android29-clang"
+ar = "android-ndk/toolchains/llvm/prebuilt/darwin-x86_64/bin/aarch64-linux-android-ar"
+linker = "android-ndk/toolchains/llvm/prebuilt/darwin-x86_64/bin/aarch64-linux-android29-clang"
 
 [target.armv7-linux-androideabi]
-ar = "<YOUR NDK PATH HERE>/toolchains/llvm/prebuilt/darwin-x86_64/bin/arm-linux-androideabi-ar"
-linker = "<YOUR NDK PATH HERE>/toolchains/llvm/prebuilt/darwin-x86_64/bin/arm-linux-androideabi29-clang"
+ar = "android-ndk/toolchains/llvm/prebuilt/darwin-x86_64/bin/arm-linux-androideabi-ar"
+linker = "android-ndk/toolchains/llvm/prebuilt/darwin-x86_64/bin/armv7a-linux-androideabi29-clang"
 
 [target.i686-linux-android]
-ar = "<YOUR NDK PATH HERE>/toolchains/llvm/prebuilt/darwin-x86_64/bin/i686-linux-android-ar"
-linker = "<YOUR NDK PATH HERE>/toolchains/llvm/prebuilt/darwin-x86_64/bin/i686-linux-android29-clang"
+ar = "android-ndk/toolchains/llvm/prebuilt/darwin-x86_64/bin/i686-linux-android-ar"
+linker = "android-ndk/toolchains/llvm/prebuilt/darwin-x86_64/bin/i686-linux-android29-clang"

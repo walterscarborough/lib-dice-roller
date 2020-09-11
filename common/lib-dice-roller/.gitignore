@@ -9,3 +9,6 @@ Cargo.lock
 # Code
 src/roll_generated/*_generated.rs
 generated_c_headers
+
+# Android
+android-ndk
