@@ -1,4 +1,4 @@
-name: DiceRoller Pipeline
+name: iOS Pipeline
 
 on:
   push:
@@ -12,14 +12,6 @@ env:
   CARGO_TERM_COLOR: always
 
 jobs:
-  test-rust-library:
-    runs-on: ubuntu-18.04
-    steps:
-    - uses: actions/checkout@v2
-    - name: Run Rust Library Tests
-      run: make test
-      working-directory: common/lib-dice-roller
-
   test-and-build-ios:
     runs-on: macos-10.15
     steps:
@@ -47,20 +39,3 @@ jobs:
     - name: Build iOS Application
       run: make build
       working-directory: applications/ios
-
-  test-and-build-android:
-    runs-on: macos-10.15
-    steps:
-    - uses: actions/checkout@v2
-    - name: Install Rust Android Dependencies
-      run: make install-android-dependencies
-      working-directory: common/lib-dice-roller
-    - name: Symlink Android NDK
-      run: ln -s $HOME/Library/Android/sdk/ndk-bundle android-ndk
-      working-directory: common/lib-dice-roller
-    - name: Setup Rust Cargo Config for Android NDK
-      run: mkdir -p .cargo && cp cargo-config.toml .cargo/config.toml
-      working-directory: common/lib-dice-roller
-    - name: Build Rust Android Library
-      run: make build-android
-      working-directory: common/lib-dice-roller
