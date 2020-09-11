@@ -28,10 +28,10 @@ jobs:
 
     - name: Run iOS Platform Wrapper Tests
       run: make test
-      working-directory: platform-wrappers/ios
+      working-directory: platform-adapters/ios
     - name: Build iOS Platform Wrapper
       run: make build
-      working-directory: platform-wrappers/ios
+      working-directory: platform-adapters/ios
 
     - name: Run iOS Application Tests
       run: make test

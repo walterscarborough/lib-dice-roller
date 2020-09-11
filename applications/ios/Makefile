@@ -30,7 +30,7 @@ test: install-dependencies build-libdiceroller-ios
 
 .PHONY: build-libdiceroller-ios
 build-libdiceroller-ios:
-	cd ../../platform-wrappers/ios && make build
+	cd ../../platform-adapters/ios && make build
 
 .PHONY: install-dependencies
 install-dependencies:

@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		D1817CA3250B3457008F3DC3 /* LibDiceRoller.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D1817C9D250B31BE008F3DC3 /* LibDiceRoller.framework */; };
+		D1817CA4250B3457008F3DC3 /* LibDiceRoller.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = D1817C9D250B31BE008F3DC3 /* LibDiceRoller.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		D19BDA1E2505D1CD000F3703 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D19BDA1D2505D1CD000F3703 /* AppDelegate.swift */; };
 		D19BDA202505D1CD000F3703 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D19BDA1F2505D1CD000F3703 /* SceneDelegate.swift */; };
 		D19BDA232505D1CD000F3703 /* DiceRoller.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = D19BDA212505D1CD000F3703 /* DiceRoller.xcdatamodeld */; };
@@ -16,11 +18,23 @@
 		D19BDA2D2505D1CF000F3703 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D19BDA2B2505D1CF000F3703 /* LaunchScreen.storyboard */; };
 		D19BDA382505D1D0000F3703 /* DiceRollerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D19BDA372505D1D0000F3703 /* DiceRollerTests.swift */; };
 		D19BDA432505D1D0000F3703 /* DiceRollerUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D19BDA422505D1D0000F3703 /* DiceRollerUITests.swift */; };
-		D1FFA8032507D15C0082869A /* LibDiceRoller.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D1FFA8002507D1300082869A /* LibDiceRoller.framework */; };
-		D1FFA8042507D15C0082869A /* LibDiceRoller.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = D1FFA8002507D1300082869A /* LibDiceRoller.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		D1817C9C250B31BE008F3DC3 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D1FFA7FA2507D1300082869A /* LibDiceRoller.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = D1FFA7B1250738360082869A;
+			remoteInfo = LibDiceRoller;
+		};
+		D1817C9E250B31BE008F3DC3 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D1FFA7FA2507D1300082869A /* LibDiceRoller.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = D1FFA7BA250738360082869A;
+			remoteInfo = LibDiceRollerTests;
+		};
 		D19BDA342505D1D0000F3703 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = D19BDA122505D1CD000F3703 /* Project object */;
@@ -35,20 +49,6 @@
 			remoteGlobalIDString = D19BDA192505D1CD000F3703;
 			remoteInfo = DiceRoller;
 		};
-		D1FFA7FF2507D1300082869A /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = D1FFA7FA2507D1300082869A /* LibDiceRoller.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = D1FFA7B1250738360082869A;
-			remoteInfo = LibDiceRoller;
-		};
-		D1FFA8012507D1300082869A /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = D1FFA7FA2507D1300082869A /* LibDiceRoller.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = D1FFA7BA250738360082869A;
-			remoteInfo = LibDiceRollerTests;
-		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -58,7 +58,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				D1FFA8042507D15C0082869A /* LibDiceRoller.framework in Embed Frameworks */,
+				D1817CA4250B3457008F3DC3 /* LibDiceRoller.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -83,7 +83,7 @@
 		D19BDA442505D1D0000F3703 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D19BDA502505D234000F3703 /* DiceRoller-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "DiceRoller-Bridging-Header.h"; sourceTree = "<group>"; };
 		D19BDA532505D29F000F3703 /* libdice_roller.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libdice_roller.a; path = "../../common/lib-dice-roller/target/universal/release/libdice_roller.a"; sourceTree = "<group>"; };
-		D1FFA7FA2507D1300082869A /* LibDiceRoller.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = LibDiceRoller.xcodeproj; path = "../../../platform-wrappers/ios/LibDiceRoller.xcodeproj"; sourceTree = "<group>"; };
+		D1FFA7FA2507D1300082869A /* LibDiceRoller.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = LibDiceRoller.xcodeproj; path = "../../../platform-adapters/ios/LibDiceRoller.xcodeproj"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -91,7 +91,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D1FFA8032507D15C0082869A /* LibDiceRoller.framework in Frameworks */,
+				D1817CA3250B3457008F3DC3 /* LibDiceRoller.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -112,6 +112,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		D1817C98250B31BE008F3DC3 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				D1817C9D250B31BE008F3DC3 /* LibDiceRoller.framework */,
+				D1817C9F250B31BE008F3DC3 /* LibDiceRollerTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
 		D19BDA112505D1CD000F3703 = {
 			isa = PBXGroup;
 			children = (
@@ -190,15 +199,6 @@
 				D1FFA7FA2507D1300082869A /* LibDiceRoller.xcodeproj */,
 			);
 			path = Subprojects;
-			sourceTree = "<group>";
-		};
-		D1FFA7FB2507D1300082869A /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				D1FFA8002507D1300082869A /* LibDiceRoller.framework */,
-				D1FFA8022507D1300082869A /* LibDiceRollerTests.xctest */,
-			);
-			name = Products;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -298,7 +298,7 @@
 			projectDirPath = "";
 			projectReferences = (
 				{
-					ProductGroup = D1FFA7FB2507D1300082869A /* Products */;
+					ProductGroup = D1817C98250B31BE008F3DC3 /* Products */;
 					ProjectRef = D1FFA7FA2507D1300082869A /* LibDiceRoller.xcodeproj */;
 				},
 			);
@@ -312,18 +312,18 @@
 /* End PBXProject section */
 
 /* Begin PBXReferenceProxy section */
-		D1FFA8002507D1300082869A /* LibDiceRoller.framework */ = {
+		D1817C9D250B31BE008F3DC3 /* LibDiceRoller.framework */ = {
 			isa = PBXReferenceProxy;
 			fileType = wrapper.framework;
 			path = LibDiceRoller.framework;
-			remoteRef = D1FFA7FF2507D1300082869A /* PBXContainerItemProxy */;
+			remoteRef = D1817C9C250B31BE008F3DC3 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
-		D1FFA8022507D1300082869A /* LibDiceRollerTests.xctest */ = {
+		D1817C9F250B31BE008F3DC3 /* LibDiceRollerTests.xctest */ = {
 			isa = PBXReferenceProxy;
 			fileType = wrapper.cfbundle;
 			path = LibDiceRollerTests.xctest;
-			remoteRef = D1FFA8012507D1300082869A /* PBXContainerItemProxy */;
+			remoteRef = D1817C9E250B31BE008F3DC3 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
 /* End PBXReferenceProxy section */
