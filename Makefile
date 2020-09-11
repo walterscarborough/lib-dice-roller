@@ -32,3 +32,10 @@ test-ios:
 	cd common/lib-dice-roller && make test
 	cd platform-adapters/ios && make test
 	cd applications/ios && make test
+
+.PHONY: test-android
+test-android:
+	cd common/lib-dice-roller && make install-general-dependencies
+	cd common/lib-dice-roller && make install-android-dependencies
+	cd common/lib-dice-roller && make build-android
+	cd platform-adapters/android && make test
