@@ -22,6 +22,10 @@ build-android:
 build-android-with-logging:
 	cargo build --target i686-linux-android --release --features "enable-jni enable-android-logging"
 
+.PHONY: build-wasm
+build-wasm:
+	wasm-pack build --release
+
 .PHONY: clean
 clean:
 	cargo clean
@@ -29,6 +33,10 @@ clean:
 .PHONY: test
 test:
 	cargo test
+
+.PHONY: test-wasm
+test-wasm:
+	wasm-pack test --node
 
 .PHONY: install-general-dependencies
 install-general-dependencies:
@@ -43,3 +51,7 @@ install-ios-dependencies:
 .PHONY: install-android-dependencies
 install-android-dependencies:
 	rustup target add aarch64-linux-android armv7-linux-androideabi i686-linux-android
+
+.PHONY: install-wasm-dependencies
+install-wasm-dependencies:
+	cargo install wasm-pack

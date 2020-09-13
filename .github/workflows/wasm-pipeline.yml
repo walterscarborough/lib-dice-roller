@@ -1,4 +1,4 @@
-name: Rust Pipeline
+name: Wasm Pipeline
 
 on:
   push:
@@ -16,9 +16,12 @@ jobs:
     runs-on: ubuntu-18.04
     steps:
     - uses: actions/checkout@v2
-    - name: Build Rust Library
-      run: make build
+    - name: Install Rust Wasm Dependencies
+      run: make install-wasm-dependencies
       working-directory: common/lib-dice-roller
-    - name: Run Rust Library Tests
-      run: make test
+    - name: Build Rust Wasm Library
+      run: make build-wasm
+      working-directory: common/lib-dice-roller
+    - name: Run Rust Wasm Library Tests
+      run: make test-wasm
       working-directory: common/lib-dice-roller
