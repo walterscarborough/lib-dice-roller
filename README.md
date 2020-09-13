@@ -6,6 +6,8 @@
 
 ![iOS Pipeline](https://github.com/walterscarborough/lib-dice-roller/workflows/iOS%20Pipeline/badge.svg)
 
+![Wasm Pipeline](https://github.com/walterscarborough/lib-dice-roller/workflows/Wasm%20Pipeline/badge.svg)
+
 ## Overview
 Welcome to LibDiceRoller!
 
