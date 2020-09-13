@@ -1,8 +1,7 @@
 use wasm_bindgen_test::*;
-
 use dice_roller::roll::roll_request::RollRequest;
+use dice_roller::adapters::wasm::wasm_adapter::{convert_protobuf_to_js_array, wasm_roll_dice, convert_js_array_to_protobuf};
 use dice_roller::roll::roll_response::RollResponse;
-use dice_roller::wasm::wasm_adapter::{convert_protobuf_to_js_array, wasm_roll_dice, convert_js_array_to_protobuf};
 
 #[wasm_bindgen_test]
 fn wasm_roll_dice_should_succeed() {

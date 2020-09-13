@@ -65,11 +65,8 @@ fn convert_ffi_array_buffer_to_protobuf(ffi_array_buffer: FfiArrayBuffer) -> Vec
 
 #[cfg(test)]
 mod tests {
-    use crate::ffi::ffi_wrapper::{
-        convert_ffi_array_buffer_to_protobuf, convert_protobuf_to_ffi_array_buffer, ffi_roll_dice,
-        ffi_roll_dice_free,
-    };
     use crate::roll::roll_request::RollRequest;
+    use crate::adapters::ffi::ffi_adapter::{convert_protobuf_to_ffi_array_buffer, ffi_roll_dice, convert_ffi_array_buffer_to_protobuf, ffi_roll_dice_free};
     use crate::roll::roll_response::RollResponse;
 
     #[test]
