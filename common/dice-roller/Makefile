@@ -5,15 +5,15 @@ MAKEFLAGS += --warn-undefined-variables
 MAKEFLAGS += --no-builtin-rules
 
 .PHONY: build
-build:
+build: install-dependencies
 	cargo build --release
 
 .PHONY: clean
-clean:
+clean: install-dependencies
 	cargo clean
 
 .PHONY: test
-test:
+test: install-dependencies
 	cargo test
 
 .PHONY: install-dependencies

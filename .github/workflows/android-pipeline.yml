@@ -16,15 +16,20 @@ jobs:
     runs-on: macos-10.15
     steps:
     - uses: actions/checkout@v2
-    - name: Install Rust Android Dependencies
-      run: make install-dependencies
-      working-directory: common/dice-roller-jni
+
     - name: Symlink Android NDK
       run: ln -s $HOME/Library/Android/sdk/ndk-bundle android-ndk
       working-directory: common/dice-roller-jni
+
     - name: Setup Rust Cargo Config for Android NDK
       run: mkdir -p .cargo && cp cargo-config.toml .cargo/config.toml
       working-directory: common/dice-roller-jni
-    - name: Build Rust Android Library
-      run: make build
-      working-directory: common/dice-roller-jni
+
+    - name: Run Top Level Makefile Clean
+      run: make clean-android
+
+    - name: Run Top Level Makefile Build
+      run: make build-android
+
+    - name: Run Top Level Makefile Test
+      run: make test-android

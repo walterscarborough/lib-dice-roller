@@ -5,15 +5,15 @@ MAKEFLAGS += --warn-undefined-variables
 MAKEFLAGS += --no-builtin-rules
 
 .PHONY: build
-build:
+build: install-dependencies
 	wasm-pack build --release
 
 .PHONY: clean
-clean:
+clean: install-dependencies
 	cargo clean
 
 .PHONY: test
-test:
+test: install-dependencies
 	wasm-pack test --node
 
 .PHONY: install-dependencies

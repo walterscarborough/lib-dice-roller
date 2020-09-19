@@ -12,13 +12,15 @@ env:
   CARGO_TERM_COLOR: always
 
 jobs:
-  test-rust-library:
+  test-and-build-rust-library:
     runs-on: ubuntu-18.04
     steps:
     - uses: actions/checkout@v2
+
     - name: Build Rust Library
       run: make build
       working-directory: common/dice-roller
+
     - name: Run Rust Library Tests
       run: make test
       working-directory: common/dice-roller

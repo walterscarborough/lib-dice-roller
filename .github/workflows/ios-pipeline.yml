@@ -16,26 +16,15 @@ jobs:
     runs-on: macos-10.15
     steps:
     - uses: actions/checkout@v2
-    - name: Install Rust iOS Dependencies
-      run: make install-dependencies
-      working-directory: common/dice-roller-ffi
-    - name: Build Rust iOS Library
-      run: make build
-      working-directory: common/dice-roller-ffi
 
     - name: Force xcode 11.7
       run: sudo xcode-select -switch /Applications/Xcode_11.7.app
 
-    - name: Run iOS Platform Wrapper Tests
-      run: make test
-      working-directory: platform-adapters/ios
-    - name: Build iOS Platform Wrapper
-      run: make build
-      working-directory: platform-adapters/ios
+    - name: Run Top Level Makefile Clean
+      run: make clean-ios
 
-    - name: Run iOS Application Tests
-      run: make test
-      working-directory: applications/ios
-    - name: Build iOS Application
-      run: make build
-      working-directory: applications/ios
+    - name: Run Top Level Makefile Build
+      run: make build-ios
+
+    - name: Run Top Level Makefile Test
+      run: make test-ios

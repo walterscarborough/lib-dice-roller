@@ -16,12 +16,15 @@ jobs:
     runs-on: ubuntu-18.04
     steps:
     - uses: actions/checkout@v2
+
     - name: Install Rust Wasm Dependencies
       run: make install-dependencies
       working-directory: common/dice-roller-wasm
+
     - name: Build Rust Wasm Library
       run: make build
       working-directory: common/dice-roller-wasm
+
     - name: Run Rust Wasm Library Tests
       run: make test
       working-directory: common/dice-roller-wasm

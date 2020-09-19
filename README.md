@@ -62,6 +62,11 @@ make build-ios
 make test-ios
 ```
 
+*Clean*
+```bash
+make clean-ios
+```
+
 ### Android Setup
 
 The Android NDK will need to be installed and setup in order to build LibDiceRoller. 
@@ -81,6 +86,11 @@ make build-android
 *Test*
 ```bash
 make test-android
+```
+
+*Clean*
+```bash
+make clean-android
 ```
 
 ## Thoughts? Ideas?
