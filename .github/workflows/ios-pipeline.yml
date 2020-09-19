@@ -17,8 +17,8 @@ jobs:
     steps:
     - uses: actions/checkout@v2
 
-    - name: Force xcode 11.7
-      run: sudo xcode-select -switch /Applications/Xcode_11.7.app
+    - name: Force xcode 12
+      run: sudo xcode-select -switch /Applications/Xcode_12.app
 
     - name: Run Top Level Makefile Clean
       run: make clean-ios
