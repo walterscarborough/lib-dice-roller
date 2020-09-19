@@ -5,7 +5,7 @@ MAKEFLAGS += --warn-undefined-variables
 MAKEFLAGS += --no-builtin-rules
 
 .PHONY: build
-build: build-libdiceroller-common install-dependencies generate-protobufs
+build: build-libdiceroller-ffi install-dependencies generate-protobufs
 	xcodebuild build \
             -project LibDiceRoller.xcodeproj \
             -scheme LibDiceRoller \
@@ -21,7 +21,7 @@ clean: install-dependencies
 		| xcpretty
 
 .PHONY: test
-test: build-libdiceroller-common install-dependencies generate-protobufs
+test: build-libdiceroller-ffi install-dependencies generate-protobufs
 	xcodebuild test \
 		-project LibDiceRoller.xcodeproj \
 		-scheme LibDiceRoller \
@@ -32,9 +32,9 @@ test: build-libdiceroller-common install-dependencies generate-protobufs
 generate-protobufs:
 	./scripts/generate-protobufs.sh
 
-.PHONY: build-libdiceroller-common
-build-libdiceroller-common:
-	cd ../../common/lib-dice-roller && make build-ios
+.PHONY: build-libdiceroller-ffi
+build-libdiceroller-ffi:
+	cd ../../common/dice-roller-ffi && make build
 
 .PHONY: install-dependencies
 install-dependencies:

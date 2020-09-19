@@ -17,11 +17,11 @@ jobs:
     steps:
     - uses: actions/checkout@v2
     - name: Install Rust iOS Dependencies
-      run: make install-ios-dependencies
-      working-directory: common/lib-dice-roller
+      run: make install-dependencies
+      working-directory: common/dice-roller-ffi
     - name: Build Rust iOS Library
-      run: make build-ios
-      working-directory: common/lib-dice-roller
+      run: make build
+      working-directory: common/dice-roller-ffi
 
     - name: Force xcode 11.7
       run: sudo xcode-select -switch /Applications/Xcode_11.7.app

@@ -1,13 +1,13 @@
-use crate::roll::roll_dice::roll_dice;
 use jni::objects::{JClass, JObject};
 use jni::sys::jbyteArray;
 use jni::JNIEnv;
 
-use crate::roll::roll_request::RollRequest;
 #[cfg(feature = "enable-android-logging")]
 use android_logger::Config;
 #[cfg(feature = "enable-android-logging")]
 use log::Level;
+use dice_roller::roll::roll_request::RollRequest;
+use dice_roller::roll::roll_dice::roll_dice;
 
 #[cfg(feature = "enable-android-logging")]
 fn initialize_android_logger() {

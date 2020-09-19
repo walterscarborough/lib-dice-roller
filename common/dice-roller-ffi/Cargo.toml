@@ -1,0 +1,18 @@
+[package]
+name = "dice_roller_ffi"
+version = "0.1.0"
+authors = ["Walter Scarborough <walter.scarborough@gmail.com>"]
+edition = "2018"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[lib]
+name = "dice_roller_ffi"
+crate-type = ["cdylib", "rlib", "staticlib"]
+
+[dependencies]
+dice_roller = { path = "../dice-roller" }
+
+[build-dependencies]
+cargo-lipo = "3.1.0"
+cbindgen = "0.14.4"

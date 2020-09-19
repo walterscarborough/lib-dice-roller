@@ -17,14 +17,14 @@ jobs:
     steps:
     - uses: actions/checkout@v2
     - name: Install Rust Android Dependencies
-      run: make install-android-dependencies
-      working-directory: common/lib-dice-roller
+      run: make install-dependencies
+      working-directory: common/dice-roller-jni
     - name: Symlink Android NDK
       run: ln -s $HOME/Library/Android/sdk/ndk-bundle android-ndk
-      working-directory: common/lib-dice-roller
+      working-directory: common/dice-roller-jni
     - name: Setup Rust Cargo Config for Android NDK
       run: mkdir -p .cargo && cp cargo-config.toml .cargo/config.toml
-      working-directory: common/lib-dice-roller
+      working-directory: common/dice-roller-jni
     - name: Build Rust Android Library
-      run: make build-android
-      working-directory: common/lib-dice-roller
+      run: make build
+      working-directory: common/dice-roller-jni

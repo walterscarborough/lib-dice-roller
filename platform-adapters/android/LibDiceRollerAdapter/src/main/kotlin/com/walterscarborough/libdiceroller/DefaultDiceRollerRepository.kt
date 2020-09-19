@@ -6,11 +6,11 @@ class DefaultDiceRollerRepository {
     external fun roll_dice(input: ByteArray?): ByteArray
 
     init {
-        System.loadLibrary("dice_roller")
+        System.loadLibrary("dice_roller_jni")
     }
 
     fun rollDice() {
-        val rollRequest = RollRequest(6, 10)
+        val rollRequest = RollRequest(6, 2)
         val rollRequestProtobuf = rollRequest.toProtobuf()
         val rollRequestByteArray = rollRequestProtobuf.toByteArray()
 

@@ -15,7 +15,7 @@ function go_to_project_root_directory() {
 
 function generate_protobufs {
   mkdir -p generated-protobufs
-  protoc --swift_out=generated-protobufs --proto_path=../../common/lib-dice-roller/protobuf_schemata roll_request.proto roll_response.proto
+  protoc --swift_out=generated-protobufs --proto_path=../../common/dice-roller/protobuf_schemata roll_request.proto roll_response.proto
 }
 
 function create_xcode_generated_directory {

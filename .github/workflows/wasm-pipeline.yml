@@ -17,11 +17,11 @@ jobs:
     steps:
     - uses: actions/checkout@v2
     - name: Install Rust Wasm Dependencies
-      run: make install-wasm-dependencies
-      working-directory: common/lib-dice-roller
+      run: make install-dependencies
+      working-directory: common/dice-roller-wasm
     - name: Build Rust Wasm Library
-      run: make build-wasm
-      working-directory: common/lib-dice-roller
+      run: make build
+      working-directory: common/dice-roller-wasm
     - name: Run Rust Wasm Library Tests
-      run: make test-wasm
-      working-directory: common/lib-dice-roller
+      run: make test
+      working-directory: common/dice-roller-wasm

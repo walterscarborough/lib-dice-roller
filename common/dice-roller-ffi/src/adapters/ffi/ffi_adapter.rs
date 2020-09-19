@@ -1,8 +1,8 @@
-use crate::roll::roll_dice::roll_dice;
-use crate::roll::roll_request::RollRequest;
 use std::ffi::CString;
 use std::os::raw::c_char;
 use std::ptr::slice_from_raw_parts_mut;
+use dice_roller::roll::roll_request::RollRequest;
+use dice_roller::roll::roll_dice::roll_dice;
 
 #[repr(C)]
 pub struct FfiArrayBuffer {
@@ -69,8 +69,8 @@ mod tests {
         convert_ffi_array_buffer_to_protobuf, convert_protobuf_to_ffi_array_buffer, ffi_roll_dice,
         ffi_roll_dice_free,
     };
-    use crate::roll::roll_request::RollRequest;
-    use crate::roll::roll_response::RollResponse;
+    use dice_roller::roll::roll_request::RollRequest;
+    use dice_roller::roll::roll_response::RollResponse;
 
     #[test]
     fn test_ffi_roll_dice() {

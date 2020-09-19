@@ -1,7 +1,6 @@
 use wasm_bindgen::prelude::*;
-
-use crate::roll::roll_dice::roll_dice;
-use crate::roll::roll_request::RollRequest;
+use dice_roller::roll::roll_request::RollRequest;
+use dice_roller::roll::roll_dice::roll_dice;
 
 #[wasm_bindgen]
 pub fn wasm_roll_dice(input: &JsValue) -> Result<js_sys::Array, JsValue> {

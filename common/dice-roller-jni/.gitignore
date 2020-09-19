@@ -1,0 +1,14 @@
+# Rust
+/target
+Cargo.lock
+.cargo
+
+# IntelliJ
+.idea
+
+# Code
+src/roll_generated/*_generated.rs
+generated_c_headers
+
+# Android
+android-ndk

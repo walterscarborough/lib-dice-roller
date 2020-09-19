@@ -7,9 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		D1DA42C9251599AC007EBD48 /* libdice_roller_ffi.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D1DA42C725159912007EBD48 /* libdice_roller_ffi.a */; };
 		D1FFA7BB250738360082869A /* LibDiceRoller.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D1FFA7B1250738360082869A /* LibDiceRoller.framework */; };
 		D1FFA7C2250738360082869A /* LibDiceRoller.h in Headers */ = {isa = PBXBuildFile; fileRef = D1FFA7B4250738360082869A /* LibDiceRoller.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		D1FFA7CD250738650082869A /* libdice_roller.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D1FFA7CC250738550082869A /* libdice_roller.a */; };
 		D1FFA7CF2507387A0082869A /* lib_dice_roller_bindings.h in Headers */ = {isa = PBXBuildFile; fileRef = D1FFA7CE2507387A0082869A /* lib_dice_roller_bindings.h */; settings = {ATTRIBUTES = (Private, ); }; };
 		D1FFA7D2250738930082869A /* roll_request.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1FFA7D0250738930082869A /* roll_request.pb.swift */; };
 		D1FFA7D3250738930082869A /* roll_response.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1FFA7D1250738930082869A /* roll_response.pb.swift */; };
@@ -34,13 +34,15 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		D1DA42C325159870007EBD48 /* libdice_roller_ffi.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libdice_roller_ffi.a; path = "../../common/dice-roller-ffi/target/aarch64-apple-ios/release/libdice_roller_ffi.a"; sourceTree = "<group>"; };
+		D1DA42C725159912007EBD48 /* libdice_roller_ffi.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libdice_roller_ffi.a; path = "../../common/dice-roller-ffi/target/universal/release/libdice_roller_ffi.a"; sourceTree = "<group>"; };
 		D1FFA7B1250738360082869A /* LibDiceRoller.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = LibDiceRoller.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D1FFA7B4250738360082869A /* LibDiceRoller.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LibDiceRoller.h; sourceTree = "<group>"; };
 		D1FFA7B5250738360082869A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D1FFA7BA250738360082869A /* LibDiceRollerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = LibDiceRollerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		D1FFA7C1250738360082869A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D1FFA7CC250738550082869A /* libdice_roller.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libdice_roller.a; path = "../../common/lib-dice-roller/target/universal/release/libdice_roller.a"; sourceTree = "<group>"; };
-		D1FFA7CE2507387A0082869A /* lib_dice_roller_bindings.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = lib_dice_roller_bindings.h; path = "../../../../common/lib-dice-roller/generated_c_headers/lib_dice_roller_bindings.h"; sourceTree = "<group>"; };
+		D1FFA7CE2507387A0082869A /* lib_dice_roller_bindings.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = lib_dice_roller_bindings.h; path = "../../../../common/dice-roller-ffi/generated_c_headers/lib_dice_roller_bindings.h"; sourceTree = "<group>"; };
 		D1FFA7D0250738930082869A /* roll_request.pb.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = roll_request.pb.swift; path = "../../generated-protobufs/roll_request.pb.swift"; sourceTree = "<group>"; };
 		D1FFA7D1250738930082869A /* roll_response.pb.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = roll_response.pb.swift; path = "../../generated-protobufs/roll_response.pb.swift"; sourceTree = "<group>"; };
 		D1FFA7E92507485C0082869A /* RollResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RollResponse.swift; sourceTree = "<group>"; };
@@ -58,7 +60,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D1FFA7CD250738650082869A /* libdice_roller.a in Frameworks */,
+				D1DA42C9251599AC007EBD48 /* libdice_roller_ffi.a in Frameworks */,
 				D1FFA7DC250746340082869A /* SwiftProtobuf in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -119,6 +121,8 @@
 		D1FFA7CB250738550082869A /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				D1DA42C325159870007EBD48 /* libdice_roller_ffi.a */,
+				D1DA42C725159912007EBD48 /* libdice_roller_ffi.a */,
 				D1FFA7CC250738550082869A /* libdice_roller.a */,
 			);
 			name = Frameworks;
@@ -345,7 +349,7 @@
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.7;
-				LIBRARY_SEARCH_PATHS = "$(PROJECT_DIR)/../../common/lib-dice-roller/target/universal/release";
+				LIBRARY_SEARCH_PATHS = "$(PROJECT_DIR)/../../common/dice-roller-ffi/target/universal/release";
 				MODULEMAP_FILE = "$(SRCROOT)/LibDiceRoller/LibDiceRoller.modulemap";
 				MODULEMAP_PRIVATE_FILE = "";
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
@@ -409,7 +413,7 @@
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.7;
-				LIBRARY_SEARCH_PATHS = "$(PROJECT_DIR)/../../common/lib-dice-roller/target/universal/release";
+				LIBRARY_SEARCH_PATHS = "$(PROJECT_DIR)/../../common/dice-roller-ffi/target/universal/release";
 				MODULEMAP_FILE = "$(SRCROOT)/LibDiceRoller/LibDiceRoller.modulemap";
 				MODULEMAP_PRIVATE_FILE = "";
 				MTL_ENABLE_DEBUG_INFO = NO;

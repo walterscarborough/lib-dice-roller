@@ -36,7 +36,7 @@ android {
         main.java.srcDirs += "src/main/kotlin"
         main.java.srcDirs += "generated-sources/main/java"
 
-        main.proto.srcDirs += "../../../common/lib-dice-roller/protobuf_schemata"
+        main.proto.srcDirs += "../../../common/dice-roller/protobuf_schemata"
     }
 }
 
@@ -68,7 +68,7 @@ protobuf {
 }
 
 task copyRustLibraryX86(type: Copy) {
-    from '../../../common/lib-dice-roller/target/i686-linux-android/release/libdice_roller.so'
+    from '../../../common/dice-roller-jni/target/i686-linux-android/release/libdice_roller_jni.so'
     into "${project(':LibDiceRollerAdapter').getProjectDir()}/src/main/jniLibs/x86/"
 }
 

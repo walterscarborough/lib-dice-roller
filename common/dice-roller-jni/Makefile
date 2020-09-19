@@ -6,25 +6,13 @@ MAKEFLAGS += --no-builtin-rules
 
 .PHONY: build
 build:
-	cargo build --release
-
-.PHONY: build-ios
-build-ios:
-	cargo lipo --release
-
-.PHONY: build-android
-build-android:
 	cargo build --target i686-linux-android --release --features "enable-jni"
 	cargo build --target armv7-linux-androideabi --release --features "enable-jni"
 	cargo build --target aarch64-linux-android --release --features "enable-jni"
 
-.PHONY: build-android-with-logging
-build-android-with-logging:
+.PHONY: build-with-logging
+build-with-logging:
 	cargo build --target i686-linux-android --release --features "enable-jni enable-android-logging"
-
-.PHONY: build-wasm
-build-wasm:
-	wasm-pack build --release
 
 .PHONY: clean
 clean:
@@ -34,24 +22,8 @@ clean:
 test:
 	cargo test
 
-.PHONY: test-wasm
-test-wasm:
-	wasm-pack test --node
-
-.PHONY: install-general-dependencies
-install-general-dependencies:
+.PHONY: install-dependencies
+install-dependencies:
 	brew bundle
 	rustup update
-
-.PHONY: install-ios-dependencies
-install-ios-dependencies:
-	rustup target add aarch64-apple-ios x86_64-apple-ios
-	cargo install cargo-lipo
-
-.PHONY: install-android-dependencies
-install-android-dependencies:
 	rustup target add aarch64-linux-android armv7-linux-androideabi i686-linux-android
-
-.PHONY: install-wasm-dependencies
-install-wasm-dependencies:
-	cargo install wasm-pack
